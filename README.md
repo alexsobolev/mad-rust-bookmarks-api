@@ -29,15 +29,25 @@ The project follows a modular structure that mirrors common Spring Boot architec
 
 ```text
 src/
-├── main.rs          # Entry point, server setup, and dependency wiring
-├── state.rs         # Application state (DI container equivalent)
-├── routes.rs        # Centralized route configuration
-├── handlers/        # REST controllers / request handlers
-├── service/         # Business logic layer
-├── repository/      # Data access layer (MongoDB)
-├── models/          # Data structures (DTOs and Entities)
-├── extractors/      # Custom Actix extractors (e.g., ValidatedJson)
-└── error.rs         # Error types and trait implementations
+├── main.rs                 # Entry point, server setup, and dependency wiring
+├── state.rs                # Application state (DI container equivalent)
+├── routes.rs               # Centralized route configuration
+├── error.rs                # App-wide error types and trait implementations
+├── extractors/             # Custom Actix extractors
+│   ├── mod.rs
+│   └── validated_json.rs   # JSON validation extractor
+├── handlers/               # REST controllers / request handlers
+│   ├── mod.rs
+│   └── bookmark_handlers.rs
+├── models/                 # Data structures (Entities and DTOs)
+│   ├── mod.rs
+│   └── bookmark.rs
+├── repository/             # Data access layer (MongoDB)
+│   ├── mod.rs
+│   └── bookmark_repository.rs
+└── service/                # Business logic layer
+    ├── mod.rs
+    └── bookmark_service.rs
 ```
 
 ## 🏁 Getting Started
